@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+{% block body %}
+
+<div class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="/" class="h1"><b> {{company_name}} </b></a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form method="post" id='loginForm' onsubmit="javascript: submitForm(this,'/account/login_user'); return false;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        <input type="text" name="username" class="form-control" placeholder="Username">
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="mb-1">
+                    <a href="forgot-password.html">I forgot my password</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}
