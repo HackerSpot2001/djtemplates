@@ -10,26 +10,38 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <link rel="stylesheet" href="/static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <link rel="stylesheet" href="/static/plugins/jqvmap/jqvmap.min.css">
-    <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="/static/plugins/summernote/summernote-bs4.min.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/static/dist/css/custom.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
+    <script src="/static/plugins/daterangepicker/daterangepicker.js" defer></script>
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/static/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/static/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+    <script src="/static/plugins/select2/js/select2.full.min.js" defer></script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> -->
+    
 </head>
 
 <body>
 
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__wobble" src="{{ company_logo }}" alt="{{company_name}" height="60" width="60">
+        <img class="animation__wobble" src="{{ company_logo }}" alt="{{company_name}}" height="60" width="60">
     </div>
 
     {% if user.is_authenticated %}
@@ -170,7 +182,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="/" class="brand-link">
             <img src="{{ company_logo }}" alt="{{ company_name }}" title="{{ company_name }}"
                 class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">{{ company_name }}</span>
@@ -185,7 +197,7 @@
                         alt="{{ user.get_full_name }}">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">
+                    <a href="/account/edit_profile" class="d-block">
                         {% if user.username %}
                         {{user.username}}
                         {% else %}
@@ -225,7 +237,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <i class=" nav-icon fas fa-project-diagram"></i>
                             <p>
                                 Projects
                                 <i class="right fas fa-angle-left"></i>
@@ -234,13 +246,14 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="/inventory/add-inventory" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
                                     <p>Project 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/inventory/list-inventory" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="nav-icon fas fa-circle"></i>
+
                                     <p>Project 2</p>
                                 </a>
                             </li>
@@ -287,7 +300,8 @@
                             <li class="nav-item">
                                 <a href="/inventory/list-inventory" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p title="Material Requirement Planning module / Supply Chain Management">MRP / SCM</p>
+                                    <p title="Material Requirement Planning module / Supply Chain Management">MRP / SCM
+                                    </p>
                                 </a>
                             </li>
                         </ul>
@@ -411,7 +425,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
-                                Accounting
+                                Facility
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -495,6 +509,7 @@
     <script src="/static/plugins/summernote/summernote-bs4.min.js"></script>
     <script src="/static/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <script src="/static/dist/js/adminlte.js"></script>
+
     <!-- <script src="/static/plugins/sparklines/sparkline.js"></script> -->
     <!-- <script src="/static/dist/js/demo.js"></script> -->
     <!-- <script src="/static/dist/js/pages/dashboard.js"></script> -->
